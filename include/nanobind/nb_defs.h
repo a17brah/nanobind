@@ -42,7 +42,7 @@
 #  define NB_STRDUP        strdup
 #endif
 
-#if defined(__GNUC__)
+#if defined(__GNUC__) && !defined(__MINGW64__)
 #  define NB_NAMESPACE nanobind __attribute__((visibility("hidden")))
 #else
 #  define NB_NAMESPACE nanobind
@@ -66,7 +66,7 @@
 #  define NB_CORE
 #endif
 
-#if !defined(NB_SHARED) && defined(__GNUC__)
+#if !defined(NB_SHARED) && defined(__GNUC__) && !defined(__MINGW64__)
 #  define NB_EXPORT_SHARED __attribute__ ((visibility("hidden")))
 #else
 #  define NB_EXPORT_SHARED
